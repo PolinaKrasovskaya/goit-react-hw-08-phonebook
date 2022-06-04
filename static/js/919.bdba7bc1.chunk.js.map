@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/919.bdba7bc1.chunk.js","mappings":"wMACaA,EAAY,WAEvB,OACE,iCACE,2DACA","sources":["views/BooksView.jsx"],"sourcesContent":["\nexport const BooksView = () => {\n\n  return (\n    <>\n      <p>Книги</p>\n      <p>fgnhrhghndgth</p>\n    </>\n  );\n};\n"],"names":["BooksView"],"sourceRoot":""}

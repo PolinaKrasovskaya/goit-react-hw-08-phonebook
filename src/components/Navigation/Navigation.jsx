@@ -6,6 +6,7 @@ export const Navigation = () => {
       <Link to="/">Главная</Link>
       <Link to="/authors">Авторы</Link>
       <Link to="/books">Книги</Link>
+      <Link to="/phonebook">Телефонная книга</Link>
     </nav>
   );
 };

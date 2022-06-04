@@ -4,9 +4,8 @@ import { createAsyncView } from 'helpers';
 
 const HomeView = createAsyncView('HomeView');
 const AuthorsView = createAsyncView('AuthorsView');
-// const AuthorSubView = createAsyncView('AuthorSubView');
 const BooksView = createAsyncView('BooksView');
-// const BookDetailsView = createAsyncView('BookDetailsView');
+const PhoneBook = createAsyncView('PhoneBook');
 const NotFoundView = createAsyncView('NotFoundView');
 
 export const App = () => {
@@ -18,7 +17,7 @@ export const App = () => {
           {/* <Route path=":authorId" element={<AuthorSubView />} /> */}
         {/* </Route> */}
         <Route path="books" element={<BooksView />} />
-        {/* <Route path="books/:bookId" element={<BookDetailsView />} /> */}
+        <Route path="phonebook" element={<PhoneBook />} />
         <Route path="*" element={<NotFoundView />} />
       </Route>
     </Routes>

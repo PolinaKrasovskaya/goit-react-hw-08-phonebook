@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useAddContactMutation } from 'redux/contactsSlice';
-import { useGetContactsQuery } from 'redux/contactsSlice';
+import { useAddContactMutation } from 'redux/contacts';
+import { useGetContactsQuery } from 'redux/contacts';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {

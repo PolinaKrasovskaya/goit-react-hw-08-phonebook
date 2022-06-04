@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDeleteContactMutation } from 'redux/contactsSlice';
+import { useDeleteContactMutation } from 'redux/contacts';
 import {
   ItemList,
   ItemButton,

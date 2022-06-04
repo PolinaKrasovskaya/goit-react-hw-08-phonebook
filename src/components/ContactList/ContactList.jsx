@@ -1,8 +1,8 @@
 import React from 'react';
 import ListItem from '../ListItem/ListItem';
 import { useSelector } from 'react-redux';
-import { getFilter } from 'redux/filterSlice';
-import { useGetContactsQuery } from 'redux/contactsSlice';
+import { getFilter } from 'redux/contacts';
+import { useGetContactsQuery } from 'redux/contacts';
 import { SpinnerCircular } from 'spinners-react';
 import { ListContacts } from './ContactList.styles';
 

@@ -10,8 +10,8 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { filterSlice } from './filterSlice';
-import { contactsApi } from './contactsSlice';
+import { filterSlice } from './contacts';
+import { contactsApi } from './contacts';
 import { authReducer } from './auth';
 
 const middleware = [

@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from 'components/Layout/Layout';
 import { createAsyncView } from 'helpers';
+import { authOperations } from 'redux/auth'
 
 const HomeView = createAsyncView('HomeView');
 const RegisterView = createAsyncView('RegisterView');
@@ -9,6 +13,12 @@ const PhoneBook = createAsyncView('PhoneBook');
 const NotFoundView = createAsyncView('NotFoundView');
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser);
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

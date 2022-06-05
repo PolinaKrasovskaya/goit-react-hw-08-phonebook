@@ -4,7 +4,8 @@ import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from 'components/Layout/Layout';
 import { createAsyncView } from 'helpers';
-import { authOperations } from 'redux/auth'
+import { authOperations } from 'redux/auth';
+import PrivateRoute from 'components/PrivateRoute';
 
 const HomeView = createAsyncView('HomeView');
 const RegisterView = createAsyncView('RegisterView');
@@ -25,8 +26,6 @@ export const App = () => {
         <Route index element={<HomeView />} />
         <Route path="phonebook" element={<PhoneBook />} />
         <Route path="register" element={<RegisterView />} />
-          {/* <Route path=":authorId" element={<AuthorSubView />} /> */}
-        {/* </Route> */}
         <Route path="login" element={<LoginView />} />
         <Route path="*" element={<NotFoundView />} />
       </Route>

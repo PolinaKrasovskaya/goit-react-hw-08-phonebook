@@ -4,15 +4,6 @@ export const contactsApi = createApi({
     reducerPath: 'contacts',
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://62963fa4810c00c1cb722f1b.mockapi.io',
-        // baseUrl: "https://connections-api.herokuapp.com",
-        // prepareHeaders: (headers, {getState}) => {
-        //     const token = getState().auth.token
-    
-        //     if(token) {
-        //         headers.set('Authorization', `Bearer ${token}`)
-        //     }
-        //     return headers
-        // }  
     }),
     tagTypes: ['Contacts'],
     endpoints: (builder) => ({
@@ -43,3 +34,13 @@ export const {
     useAddContactMutation,
     useDeleteContactMutation,
 } = contactsApi;
+
+// baseUrl: "https://connections-api.herokuapp.com",
+// prepareHeaders: (headers, {getState}) => {
+//     const token = getState().auth.token
+
+//     if(token) {
+//         headers.set('Authorization', `Bearer ${token}`)
+//     }
+//     return headers
+// }  

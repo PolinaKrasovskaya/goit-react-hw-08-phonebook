@@ -1,15 +1,7 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
-    min-height: calc(100vh - 50px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-`
-
 export const Wrapper = styled.div`
-    min-height: calc(100vh - 50px);
+    min-height: calc(100vh - 300px);
     display: flex;
     align-items: center;
     justify-content: center;

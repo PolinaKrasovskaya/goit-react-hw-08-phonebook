@@ -51,6 +51,8 @@ export const LoginView = () => {
             name="email"
             value={email}
             onChange={handleChange}
+
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
         </Label>
 
@@ -62,6 +64,7 @@ export const LoginView = () => {
             value={password}
             onChange={handleChange}
             autoComplete="off"
+
           />
         </Label>
 

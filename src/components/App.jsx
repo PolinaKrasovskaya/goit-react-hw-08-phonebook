@@ -2,23 +2,41 @@ import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Layout } from './Layout/Layout';
-// import { createAsyncView } from 'helpers';
+import { createAsyncView } from 'helpers';
 import authOperations from 'redux/auth/authOperations';
 import authSelectors from 'redux/auth/authSelectors';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-import { HomeView } from 'views/HomeView';
-import { PhoneBookView } from 'views/PhoneBookView';
-import { RegisterView } from 'views/RegisterView';
-import { LoginView } from 'views/LoginView';
-import { NotFoundView } from 'views/NotFoundView';
 
-// const HomeView = lazy(() => import('../views/HomeView'));
-// const PhoneBookView = lazy(() => import('../views/PhoneBookView'));
-// const RegisterView = lazy(() => import('../views/RegisterView'));
-// const LoginView = lazy(() => import('../views/LoginView'));
-// const NotFoundView = lazy(() => import('../views/NotFoundView'));
+const HomeView = lazy(() =>
+  import('../views/HomeView').then(module => ({
+    default: module.HomeView,
+  }))
+);
 
+const PhoneBookView = lazy(() =>
+  import('../views/PhoneBookView').then(module => ({
+    default: module.PhoneBookView,
+  }))
+);
+
+const RegisterView = lazy(() =>
+  import('../views/RegisterView').then(module => ({
+    default: module.RegisterView,
+  }))
+);
+
+const LoginView = lazy(() =>
+  import('../views/LoginView').then(module => ({
+    default: module.LoginView,
+  }))
+);
+
+const NotFoundView = lazy(() =>
+  import('../views/NotFoundView').then(module => ({
+    default: module.NotFoundView,
+  }))
+);
 
 // const PhoneBookView = createAsyncView('PhoneBookView');
 // const HomeView = createAsyncView('HomeView');
@@ -61,7 +79,6 @@ export default function App() {
             <LoginView />
           </PublicRoute>
         }/>
-        {/* WTF? */}
         <Route path="*" element={
           <PublicRoute restricted>
             <NotFoundView />

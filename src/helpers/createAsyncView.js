@@ -1,7 +1,9 @@
 import { lazy } from 'react';
 
 export const createAsyncView = componentName => {
-  return lazy(() => {
-    return import(`../views/${componentName}`) 
-  });
+  return lazy(() =>
+  import(`../views/${componentName}`).then(module => ({
+    default: module,
+  }))
+)
 };

@@ -31,11 +31,11 @@ const ContactList = () => {
           }}
         />}
       {contacts &&
-        filteredContacts.map(({ name, id, phone }) => (
+        filteredContacts.map(({ name, id, number }) => (
           <ListItem
             key={id}
             name={name}
-            phone={phone}
+            phone={number}
             id={id}
           />
         ))

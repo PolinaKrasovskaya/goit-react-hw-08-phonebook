@@ -51,7 +51,14 @@ export const RegisterView = () => {
       <Form onSubmit={handleSubmit} autoComplete="off">
         <Label>
           Name
-          <Input type="text" name="name" value={name} onChange={handleChange} />
+          <Input
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          />
         </Label>
 
         <Label>
@@ -61,6 +68,8 @@ export const RegisterView = () => {
             name="email"
             value={email}
             onChange={handleChange}
+
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
         </Label>
 
@@ -72,6 +81,7 @@ export const RegisterView = () => {
             value={password}
             onChange={handleChange}
             autoComplete="off"
+
           />
         </Label>
 

@@ -38,7 +38,7 @@ export default function ContactForm() {
 
     const newContact = {
       name,
-      phone
+      number: phone,
     };
     onAddContact(newContact);
     reset();

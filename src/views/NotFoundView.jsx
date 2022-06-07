@@ -1,9 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Text, Link, Container } from '../styles/NotFoundView.styles';
+
 export const NotFoundView = () => {
   return (
-    <h1>
+    <Container>
+    <Text>
       Page not found, go to{' '}
       <Link to="/">home page</Link>
-    </h1>
+    </Text>
+    </Container>
   );
 };

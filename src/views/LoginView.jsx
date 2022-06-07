@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
-
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import {
+  Form,
+  Label,
+  Header,
+  HeaderAccent,
+  Input,
+  Button,
+} from '../styles/LoginView.styles';
 
 export const LoginView = () => {
   const dispatch = useDispatch();
@@ -38,31 +35,38 @@ export const LoginView = () => {
 
   return (
     <div>
-      <h1>Страница логина</h1>
-
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
-          Почта
-          <input
+      <Header>Log in to your
+        <HeaderAccent> Pika
+          <span role="img" aria-label="Icon-pika">
+            ⚡
+          </span>
+          Book
+        </HeaderAccent> account
+      </Header>
+      <Form onSubmit={handleSubmit} autoComplete="off">
+        <Label>
+          E-mail
+          <Input
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
-        <label style={styles.label}>
-          Пароль
-          <input
+        <Label>
+         Password
+          <Input
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
+            autoComplete="off"
           />
-        </label>
+        </Label>
 
-        <button type="submit">Войти</button>
-      </form>
+        <Button type="submit">Enter</Button>
+      </Form>
     </div>
   );
-}
+};

@@ -1,15 +1,15 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { AppBar } from 'components/AppBar/AppBar';
-// import { Container } from './Layout.styled';
+import { Container } from './Layout.styles';
 
 export const Layout = () => {
   return (
-    <div>
+    <Container>
       <AppBar />
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
-    </div>
+    </Container>
   );
 };

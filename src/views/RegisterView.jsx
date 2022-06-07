@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
-
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import {
+  Form,
+  Label,
+  Header,
+  HeaderAccent,
+  Input,
+  Button,
+} from '../styles/RegisterView.styles';
 
 export const RegisterView = () => {
   const dispatch = useDispatch();
@@ -42,52 +39,44 @@ export const RegisterView = () => {
 
   return (
     <div>
-      <h1>Страница регистрации</h1>
+      <Header>Register for an
+        <HeaderAccent> Pika
+          <span role="img" aria-label="Icon-pika">
+            ⚡
+          </span>
+          Book
+        </HeaderAccent> account
+      </Header>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
-          Имя
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label>
+      <Form onSubmit={handleSubmit} autoComplete="off">
+        <Label>
+          Name
+          <Input type="text" name="name" value={name} onChange={handleChange} />
+        </Label>
 
-        <label style={styles.label}>
-          Почта
-          <input
+        <Label>
+          E-mail
+          <Input
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
-        <label style={styles.label}>
-          Пароль
-          <input
+        <Label>
+          Password
+          <Input
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
+            autoComplete="off"
           />
-        </label>
+        </Label>
 
-        <button type="submit">Зарегистрироваться</button>
-      </form>
+        <Button type="submit">Register</Button>
+      </Form>
     </div>
   );
-}
-
-
-// import { Outlet } from 'react-router-dom';
-
-// export const AuthorsView = () => {
-
-//   return (
-//     <>
-//       <p>Авторы</p>
-//       <p>dfgbefg</p>
-
-//       <hr />
-//       <Outlet />
-//     </>
-//   );
-// };
+};

@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {
   FormWrapper,
   InputLabel,
-  FormInrut,
+  FormInput,
   SubmitButton,
 } from './ContactForm.styles';
 
@@ -48,7 +48,7 @@ export default function ContactForm() {
     const nameToFind = data.find(contact => contact.name.toLowerCase() === name.toLowerCase());
 
     if(nameToFind) {
-      toast(`${name} is already in contacts!`);
+      toast(`⚡${name} is already in contacts!`);
     } else {
       addContact(contact);
     };
@@ -62,7 +62,7 @@ export default function ContactForm() {
   return (
     <FormWrapper onSubmit={onSubmitForm}>
       <InputLabel>Name</InputLabel>
-      <FormInrut
+      <FormInput
         type="text"
         name="name"
         placeholder='Annie Copeland'
@@ -74,7 +74,7 @@ export default function ContactForm() {
         required
       />
       <InputLabel>Number</InputLabel>
-      <FormInrut
+      <FormInput
         type="tel"
         name="phone"
         placeholder='227-91-26'

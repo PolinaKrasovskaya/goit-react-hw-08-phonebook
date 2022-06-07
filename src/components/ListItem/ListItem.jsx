@@ -3,6 +3,7 @@ import { useDeleteContactMutation } from 'redux/contacts';
 import {
   ItemList,
   ItemButton,
+  Name,
 } from './ListItem.styles';
 
 const ListItem = ({ name, phone, id }) => {
@@ -10,7 +11,13 @@ const ListItem = ({ name, phone, id }) => {
 
   return (
     <ItemList>
-      {name}: {phone}
+      <div>
+        <Name>
+          <span role="img" aria-label="Icon-pika">
+            ⚡
+          </span>
+          {name}</Name>: {phone}
+      </div>
       <ItemButton
         type="button"
         onClick={() => deleteContact(id)}

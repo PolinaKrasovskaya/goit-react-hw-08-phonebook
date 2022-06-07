@@ -12,17 +12,22 @@ const token = {
   },
 };
 
-const register = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const { data } = await axios.post('/users/signup', credentials);
-    token.set(data.token);
-    return data;
-  } catch (error) {
-    console.log(error);
+const register = createAsyncThunk(
+  'auth/register',
+  async (credentials) => {
+    try {
+      const { data } = await axios.post('/users/signup', credentials);
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      console.log(error.message);
+    }
   }
-});
+);
 
-const logIn = createAsyncThunk('auth/login', async credentials => {
+const logIn = createAsyncThunk(
+  'auth/login',
+  async (credentials) => {
   try {
     const { data } = await axios.post('/users/login', credentials);
     token.set(data.token);
@@ -32,19 +37,22 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
   }
 });
 
-const logOut = createAsyncThunk('auth/logout', async () => {
+const logOut = createAsyncThunk(
+  'auth/logout',
+  async () => {
   try {
-    await axios.post('/users/logout');
+    await axios.post('users/logout');
     token.unset();
   } catch (error) {
     console.log(error);
   }
 });
 
-const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
+const fetchCurrentUser = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    console.log(persistedToken);
 
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
@@ -52,18 +60,18 @@ const fetchCurrentUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) =>
 
     token.set(persistedToken);
     try {
-      const {data} = await axios.get('/users/current');
+      const { data } = await axios.get('/users/current');
       return data;
     } catch (error) {
       console.log(error);
     }
-  },
+  }
 );
 
-const authOperations = {
+const operations = {
   register,
-  logOut,
   logIn,
+  logOut,
   fetchCurrentUser,
 };
-export default authOperations;
+export default operations;

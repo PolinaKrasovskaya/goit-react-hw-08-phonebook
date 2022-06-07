@@ -1,26 +1,26 @@
 import React from 'react';
+import {
+  Container,
+  Helper,
+  Title,
+  AppName,
+  Image,
+} from '../styles/HomeView.styles';
+import defaultAvatar from 'images/pikachu.png';
 
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
+export const HomeView = () => {
+
+  return (
+    <Container>
+      <Helper>
+        <Title>Welcome to</Title>
+        <AppName>Pika
+          <span role="img" aria-label="Icon-pika">
+            ⚡
+          </span>
+        book</AppName>
+        <Image src={defaultAvatar} alt="avatar" />
+      </Helper>
+    </Container>
+  )
 };
-
-export const HomeView = () => (
-  <div style={styles.container}>
-    <h1 style={styles.title}>
-      Приветственная страница нашего сервиса{' '}
-      <span role="img" aria-label="Иконка приветствия">
-        💁‍♀️
-      </span>
-    </h1>
-  </div>
-);

@@ -17,6 +17,7 @@ export const Text = styled.p`
   font-weight: 700;
   font-size: 18px;
   color: #191970;
+  text-transform: uppercase;
 `;
 
 export const Name = styled.span`
@@ -26,12 +27,14 @@ export const Name = styled.span`
 export const Button = styled.button`
   margin-left: 10px;
   padding: 2px;
-  width: 80px;
+  width: 90px;
 
   font-size: 16px;
   font-weight: 900;
   color: #191970;
   background-color: #F0E10D;
+  text-transform: uppercase;
+
   border: 1px solid transparent;
   border-radius: 3px;
   box-shadow: 2px 2px 2px #4682B4;

@@ -38,7 +38,7 @@ export const FormInput = styled.input`
 export const SubmitButton = styled.button`
     margin-top: 15px;
     padding: 2px;
-    max-width: 100px;
+    max-width: 120px;
     
     border: 1px solid #191970;
     border-radius: 3px;
@@ -48,6 +48,7 @@ export const SubmitButton = styled.button`
     font-weight: 900;
     color: #F0E10D;
     background-color: #191970;
+    text-transform: uppercase;
 
     transition: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 

@@ -6,7 +6,7 @@ export const Navigation = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <nav>
-      {!isLoggedIn && <Link to="/">Home Page</Link>}
+      {!isLoggedIn && <Link to="/">Hello, Pika Friend!</Link>}
       {isLoggedIn && <Link to="contacts">Contacts</Link>}
     </nav>
   );

@@ -9,17 +9,17 @@ export const ItemList = styled.li`
 `
 
 export const ItemButton = styled.button`
-    padding: 2px;
-    width: 70px;
+    width: 60px;
 
-    border: 1px solid #191970;
+    border: 1px solid transparent;
     border-radius: 3px;
     box-shadow: 2px 2px 2px #4682B4;
 
-    font-size: 14px;
-    font-weight: 900;
+    font-size: 12px;
+    font-weight: 700;
     color: #191970;
     background-color: #F0E10D;
+    text-transform: uppercase;
 
     transition: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 

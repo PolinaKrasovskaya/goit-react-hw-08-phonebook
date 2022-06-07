@@ -10,6 +10,7 @@ export const FilterLabel = styled.label`
     font-weight: 700;
     color: #191970;
     text-shadow: 1px 1px 2px #4682B4;
+    text-transform: uppercase;
 `
 export const FilterInput = styled.input`
     margin-top: 5px;

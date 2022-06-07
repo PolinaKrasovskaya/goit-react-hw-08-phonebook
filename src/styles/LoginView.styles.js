@@ -23,9 +23,10 @@ export const Label = styled.label`
     margin-bottom: 15px;
 
     font-weight: 500;
-    font-size: 18px;
+    font-size: 14px;
     color: #191970;
     text-shadow: 1px 1px 2px #4682B4;
+    text-transform: uppercase;
 `
 
 export const Input = styled.input`

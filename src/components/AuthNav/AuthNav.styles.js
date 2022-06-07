@@ -10,6 +10,7 @@ export const Link = styled(NavLink)`
   font-size: 18px;
   color: #191970;
   text-shadow: 0 0 10px yellow;
+  text-transform: uppercase;
 
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 

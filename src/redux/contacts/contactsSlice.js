@@ -43,13 +43,3 @@ export const {
   useAddContactMutation,
   useDeleteContactMutation,
 } = contactsApi;
-
-// baseUrl: "https://connections-api.herokuapp.com",
-// prepareHeaders: (headers, {getState}) => {
-//     const token = getState().auth.token
-
-//     if(token) {
-//         headers.set('Authorization', `Bearer ${token}`)
-//     }
-//     return headers
-// }  

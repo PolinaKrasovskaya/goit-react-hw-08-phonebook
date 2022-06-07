@@ -2,11 +2,11 @@ import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Layout } from './Layout/Layout';
-import { createAsyncView } from 'helpers';
 import authOperations from 'redux/auth/authOperations';
 import authSelectors from 'redux/auth/authSelectors';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import { SpinnerCircular } from 'spinners-react';
 
 const HomeView = lazy(() =>
   import('../views/HomeView').then(module => ({
@@ -38,12 +38,6 @@ const NotFoundView = lazy(() =>
   }))
 );
 
-// const PhoneBookView = createAsyncView('PhoneBookView');
-// const HomeView = createAsyncView('HomeView');
-// const RegisterView = createAsyncView('RegisterView');
-// const LoginView = createAsyncView('LoginView');
-// const NotFoundView = createAsyncView('NotFoundView');
-
 export default function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(authSelectors.getIsRefreshing  );
@@ -54,8 +48,19 @@ export default function App() {
 
   return isRefreshing ? (
 
-    // ПОСТАВИТЬ НОРМ ЛОДЕР
-    <p>Loading...</p>
+    <SpinnerCircular
+      size="500px"
+      secondaryColor="#B0C4DE"
+      style={{
+        minHeight: "calc(100vh - 50px)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        margin: "20px",
+        color: '#191970',
+      }}
+    />
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>

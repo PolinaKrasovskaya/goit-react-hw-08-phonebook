@@ -49,7 +49,7 @@ export default function App() {
   return isRefreshing ? (
 
     <SpinnerCircular
-      size="500px"
+      size="100px"
       secondaryColor="#B0C4DE"
       style={{
         minHeight: "calc(100vh - 50px)",

@@ -22,7 +22,7 @@ const register = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      toast.error('User already exists. Try something else email');
+      toast.error('User already exists. Try different email');
     }
   }
 );

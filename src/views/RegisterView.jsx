@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
+import { useForm } from "react-hook-form";
 import {
   Form,
   Label,
@@ -12,29 +12,19 @@ import {
 
 export const RegisterView = () => {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleChange = ({ target: { name, value } }) => {
-    switch (name) {
-      case 'name':
-        return setName(value);
-      case 'email':
-        return setEmail(value);
-      case 'password':
-        return setPassword(value);
-      default:
-        return;
-    }
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    mode: "onBlur"
+  });
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    dispatch(authOperations.register({ name, email, password }));
-    setName('');
-    setEmail('');
-    setPassword('');
+  const onSubmit = data => {
+    dispatch(authOperations.register(data));
+    reset();
   };
 
   return (
@@ -48,45 +38,87 @@ export const RegisterView = () => {
         </HeaderAccent> account
       </Header>
 
-      <Form onSubmit={handleSubmit} autoComplete="off">
+      <Form
+        component="form"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <Label>
           Name
           <Input
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleChange}
-
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            {...register('name', {
+              required: 'Name is required',
+              minLength: {
+                value: 5,
+                message: 'minimum 5 symbols'
+              },
+            })}
           />
         </Label>
+        <div style={{
+          padding: 0,
+          margin: 0,
+          height: 30,
+          fontSize: 12,
+          color: "#191970",
+        }}>
+          {errors?.name && <p>{errors?.name?.message || "Error!"}</p>}
+        </div>
 
         <Label>
           E-mail
           <Input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            {...register('email', {
+              required: 'Email is required',
+            })}
           />
         </Label>
+        <div style={{
+          padding: 0,
+          margin: 0,
+          height: 30,
+          fontSize: 12,
+          color: "#191970",
+        }}>
+          {errors?.email && <p>{errors?.email?.message || "Error!"}</p>}
+        </div>
 
         <Label>
           Password
           <Input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            autoComplete="off"
-
+            {...register('password', {
+              required: 'Password is required',
+              minLength: {
+                value: 8,
+                message: 'Minimum 8 symbols'
+              },
+            })}
           />
         </Label>
+        <div style={{
+          padding: 0,
+          margin: 0,
+          height: 30,
+          fontSize: 12,
+          color: "#191970",
+        }}>
+          {errors?.password && <p>{errors?.password?.message || "Error!"}</p>}
+        </div>
 
         <Button type="submit">Register</Button>
       </Form>
     </div>
   );
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
